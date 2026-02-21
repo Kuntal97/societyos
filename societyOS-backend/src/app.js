@@ -7,6 +7,7 @@ const errorHandler = require("./middleware/errorHandler");
 const notFound = require("./middleware/notFound");
 
 const authRoutes = require("../src/modules/auth/auth.routes");
+const societyRoutes = require("../src/modules/society/society.routes");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/societies", societyRoutes);
 
 app.get("/api/health", (req, res) => {
 	res.json({ success: true, status: "ok" });
